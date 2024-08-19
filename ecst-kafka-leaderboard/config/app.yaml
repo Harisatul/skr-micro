@@ -1,0 +1,17 @@
+server:
+  port: 3001
+  read_timeout: 3
+  write_timeout: 5
+
+db:
+  host: localhost
+  port: 4444
+  user: postgres
+  password: haris123
+  db_name: leaderboard
+  ssl_mode: disable
+  min_conn: 3
+  max_conn: 200
+
+kafka:
+  broker: localhost:9092

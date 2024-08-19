@@ -1,0 +1,12 @@
+kafka:
+  broker: localhost:9092
+
+db:
+  host: localhost
+  port: 3333
+  user: postgres
+  password: haris123
+  db_name: grade
+  ssl_mode: disable
+  min_conn: 3
+  max_conn: 200

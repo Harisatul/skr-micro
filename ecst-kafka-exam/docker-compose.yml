@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+
+  exam-service-db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: haris123
+      POSTGRES_DB: exam
+    volumes:
+      - exam_data:/var/lib/postgresql/data
+    ports:
+      - "2222:5432"
+
+volumes:
+  exam_data:

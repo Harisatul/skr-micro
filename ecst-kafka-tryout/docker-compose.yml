@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+
+  tryout-service-db:
+    image: postgres:latest
+    restart: always
+    hostname: tryout-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: haris123
+      POSTGRES_DB: tryout
+    volumes:
+      - tryout_data:/var/lib/postgresql/data
+    ports:
+      - "5555:5432"
+
+#  to-zk:
+#    image: confluentinc/cp-zookeeper:7.5.1
+#    restart: always
+#    platform: linux/amd64
+#    ports:
+#      - "2181:2181"
+#    environment:
+#      ZOO_MY_ID: 1
+#      ZOO_SERVERS: exam-zk:2888:3888
+#      ZOOKEEPER_CLIENT_PORT: 2181
+#      ZOOKEEPER_TICK_TIME: 2000
+#      TZ: "Asia/Jakarta"
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: '0.25'
+#          memory: '1G'
+#        reservations:
+#          cpus: '0.15'
+#          memory: '256M'
+#
+#  to-kafka:
+#    image: confluentinc/cp-kafka:7.5.1
+#    depends_on:
+#      - to-zk
+#    ports:
+#      - "9092:9092"
+#      - "29092:29092"
+#    environment:
+#      KAFKA_BROKER_ID: 1
+#      KAFKA_ZOOKEEPER_CONNECT: '172.17.0.1:2181'
+#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://172.17.0.1:9092,PLAINTEXT_HOST://172.17.0.1:29092
+#      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+#      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+#      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+#      TZ: "Asia/Jakarta"
+
+
+volumes:
+  tryout_data:
