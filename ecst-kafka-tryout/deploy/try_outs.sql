@@ -1,0 +1,2 @@
+INSERT INTO public.try_outs (id, created_at, updated_at, deleted_at, tryout_name, tryout_type, tryout_quota, version, tryout_price, due_date) VALUES ('1', 1715354235715, 1715354235715, null, 'Matematika-1', 'multiple choice', 191506, 2858, 15000, 1715354235715);
+INSERT INTO public.try_outs (id, created_at, updated_at, deleted_at, tryout_name, tryout_type, tryout_quota, version, tryout_price, due_date) VALUES ('2', 1715354235715, 1715354235715, null, 'Matematika-2', 'multiple choice', 200000, 1, 15000, 1715354235715);

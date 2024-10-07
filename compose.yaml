@@ -15,20 +15,8 @@ services:
     ports:
       - "5555:5432"
 
-  exam-service-db:
-    image: postgres:16.4-alpine3.20
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: haris123
-      POSTGRES_DB: exam
-    volumes:
-      - exam_data:/var/lib/postgresql/data
-    ports:
-      - "2222:5432"
-
   grade-service-db:
-    image: postgres:16.4-alpine3.20
+    image: postgres:latest
     restart: always
     environment:
       POSTGRES_USER: postgres
@@ -38,18 +26,6 @@ services:
       - grade_data:/var/lib/postgresql/data
     ports:
       - "3333:5432"
-
-  leaderboard-service-db:
-    image: postgres:16.4-alpine3.20
-    restart: on-failure
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: haris123
-      POSTGRES_DB: leaderboard
-    volumes:
-      - leaderboard_data:/var/lib/postgresql/data
-    ports:
-      - "4444:5432"
 
   to-zk:
     image: confluentinc/cp-zookeeper:7.5.1
@@ -88,11 +64,3 @@ services:
       KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
       TZ: "Asia/Jakarta"
-
-
-volumes:
-  tryout_data:
-  exam_data:
-  grade_data:
-  leaderboard_data:
-
